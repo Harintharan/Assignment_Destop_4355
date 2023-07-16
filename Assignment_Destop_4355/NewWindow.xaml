@@ -1,0 +1,93 @@
+﻿<Window x:Class="Assignment_Destop_4355.NewWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Assignment_Destop_4355"
+        mc:Ignorable="d"
+        AllowsTransparency="False"
+        Title="Add Details" Height="600" Width="798">
+    <Window.DataContext>
+        <local:NewWindowVM/>
+    </Window.DataContext>
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80*"/>
+            <RowDefinition Height="41*"/>
+        </Grid.RowDefinitions>
+        <Border Margin="0,0,-2,-14" Grid.RowSpan="2">
+           
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0 0" EndPoint="1 1">
+                    <GradientStop Color="#40128B" Offset="0"/>
+                    <GradientStop Color="#9336B4" Offset="1"/>
+                </LinearGradientBrush>
+              
+            </Border.Background>
+
+            <StackPanel Width="800" Height="600"  HorizontalAlignment="Center" VerticalAlignment="Top" Orientation="Vertical">
+
+                <TextBlock FontFamily="Georgia" Foreground="WhiteSmoke"  FontSize="18" Margin="5" TextAlignment="Center" Text="ADD-DETAILS"
+                   HorizontalAlignment="Center" Width="200"/>
+
+                <TextBlock FontSize="15" Foreground="WhiteSmoke" FontFamily="Georgia" Text="First Name:" Margin="20 10 20 5"/>
+
+
+                <TextBox  Text="{Binding Firstname, UpdateSourceTrigger=PropertyChanged}"
+                 Margin="20 0 20 5" Grid.Column="1"/>
+
+                <TextBlock FontSize="15"  Foreground="WhiteSmoke" FontFamily="Georgia" Text="Last Name:" Margin="20 10 20 5" Grid.Row="1"/>
+
+                <TextBox Text="{Binding Lastname, UpdateSourceTrigger=PropertyChanged}"
+                 Margin="20 0 20 5" Grid.Column="1"/>
+
+                <TextBlock FontSize="15"  Foreground="WhiteSmoke" FontFamily="Georgia" Text="Age:" Margin="20 10 20 5" Grid.Row="1"/>
+
+                <TextBox Text="{Binding Age, UpdateSourceTrigger=PropertyChanged}"
+                 Margin="20 0 20 5" Grid.Row="1" Grid.Column="1"/>
+
+                <TextBlock FontSize="15"  Foreground="WhiteSmoke" FontFamily="Georgia" Text="Date Of Birth: (DD/MM/YY)" Margin="20 10 20 5" Grid.Row="1"/>
+
+                <TextBox Text="{Binding Dateofbirth, UpdateSourceTrigger=PropertyChanged}" 
+                 Margin="20 0 20 5" Grid.Row="1" Grid.Column="1" TextChanged="TextBox_TextChanged" Height="20" Width="757"/>
+
+                <TextBlock FontSize="15"  Foreground="WhiteSmoke" FontFamily="Georgia" Text="GPA" Margin="20 10 20 5" Grid.Row="1"/>
+
+                <TextBox Text="{Binding Gpa, UpdateSourceTrigger=PropertyChanged}"
+                 Margin="20 0 20 10" Grid.Row="1" Grid.Column="1" Width="772" Height="17"/>
+
+
+
+                <Button FontSize="12" FontFamily="Georgia"  Content="Upload Image" Width="100" HorizontalAlignment="Left" 
+                Command="{Binding InsertImageCommand}" Margin="20,0,5,-30" 
+                    Grid.Row="3" VerticalAlignment="Bottom" 
+                    Grid.ColumnSpan="2" 
+                    Style="{StaticResource button}"
+                    Background="WhiteSmoke"
+                    Foreground="DarkBlue" />
+                
+
+                <Image Height="40" HorizontalAlignment="Left" Width="100" VerticalAlignment="Top"
+               Margin="120 12 0 0" 
+                   Source="{Binding SelectedImage,UpdateSourceTrigger=PropertyChanged}"/>
+
+
+                <Button Content="Save" Command="{Binding SaveStudentCommand}" Grid.Row="3" Grid.ColumnSpan="2" 
+                    FontSize="12" Click="Button_Click1"
+                    Style="{StaticResource button}"
+                    Margin="10 0 10 0" Width="230"/>
+                <Label FontSize="15" Content="You can see the students details(when editing) using this !!!" Margin="20 10"  Foreground="Wheat" Width="581" Height="36"></Label>
+
+                <Button  Content="Students Data"  Command="{Binding SaveStudentCommand}"
+                    Grid.Row="3"
+                    Grid.ColumnSpan="2" FontSize="12" Click="Button_Click2"
+                    Style="{StaticResource button}"
+                    Margin="10 5 10 0" Width="269"/>
+
+
+            </StackPanel>
+        </Border>
+
+    </Grid>
+</Window>
+
